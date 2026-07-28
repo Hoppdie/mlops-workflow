@@ -3,9 +3,40 @@
 [![python 3.10](https://img.shields.io/badge/python-3.10-blue)](https://www.python.org/downloads/release/python-3100/)
 [![python 3.11](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/downloads/release/python-3110/)
 [![python 3.12](https://img.shields.io/badge/python-3.12-blue)](https://www.python.org/downloads/release/python-3120/)
-[![Run Tests](https://github.com/willyfh/mlops-workflow/actions/workflows/ci-checks.yaml/badge.svg)](https://github.com/willyfh/mlops-workflow/actions/workflows/ci-checks.yaml)
-[![codecov](https://codecov.io/gh/willyfh/mlops-workflow/graph/badge.svg?token=OGLCMT2KQ4)](https://codecov.io/gh/willyfh/mlops-workflow)
+[![Run Tests](https://github.com/Hoppdie/mlops-workflow/actions/workflows/ci-checks.yaml/badge.svg)](https://github.com/Hoppdie/mlops-workflow/actions/workflows/ci-checks.yaml)
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow)](https://opensource.org/licenses/MIT)
+
+> **Fork of [willyfh/mlops-workflow](https://github.com/willyfh/mlops-workflow).** I'm using this
+> production-grade MLOps template to study and document end-to-end machine-learning operations. The
+> core backend, Docker Compose stack, and test suite are the upstream author's excellent work
+> (credit to [Willy Fitra Hendria](https://github.com/willyfh)); my additions are described below.
+> The original project README is preserved in full further down.
+
+## 🛠 My Contributions (this fork)
+
+- **[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)** — a full architecture guide walking through the
+  MLOps lifecycle as implemented here: DVC data versioning, MLflow experiment tracking, the
+  four-stage model registry (None → Staging → Production → Archived), CI/CD gating, and drift
+  monitoring with automated-retraining triggers. Written to explain *why* each component exists and
+  how they connect, not just *what* the commands are.
+
+Planned next: wiring a worked training example through the MLflow registry and adding a short
+deployment walkthrough for the FastAPI inference service.
+
+## 🚀 Getting started (this fork)
+
+```bash
+git clone https://github.com/Hoppdie/mlops-workflow.git
+cd mlops-workflow
+docker compose up --build      # brings up FastAPI, MLflow, MinIO, and PostgreSQL
+```
+
+Read the [architecture guide](docs/ARCHITECTURE.md) first for a map of how the pieces fit together,
+then follow the upstream instructions below to train and serve a model.
+
+---
+
+## 📖 Original project README (upstream)
 
 A modular MLOps workflow for training, inference, experiment tracking, model registry, and deployment.
 Built with FastAPI, MLflow, MinIO, and PostgreSQL for scalable machine learning operations.
